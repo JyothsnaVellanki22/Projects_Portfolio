@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from 'react';
 import { ArrowUpRightIcon, GithubIcon, FileTextIcon } from '../../common/Icons';
 import CaseStudyLoading from './components/CaseStudyLoading';
+import CaseStudyErrorBoundary from './components/CaseStudyErrorBoundary';
 import './project-detail.css';
 
 // Code-split case studies on demand to keep initial JavaScript bundle lean
@@ -103,9 +104,11 @@ export default function ProjectDetailPage({
   const specificCaseStudy = renderCaseStudy();
   if (specificCaseStudy) {
     return (
-      <Suspense fallback={<CaseStudyLoading onBack={onBack} />}>
-        {specificCaseStudy}
-      </Suspense>
+      <CaseStudyErrorBoundary onBack={onBack}>
+        <Suspense fallback={<CaseStudyLoading onBack={onBack} />}>
+          {specificCaseStudy}
+        </Suspense>
+      </CaseStudyErrorBoundary>
     );
   }
 
@@ -120,10 +123,6 @@ export default function ProjectDetailPage({
   // Features screenshot if available
   const featuresImage = screenshots.find(s => s.includes('features')) || (screenshots.length > 2 ? screenshots[2] : null);
 
-  // Compute Next / Prev project for pager
-  const currentIndex = allProjects.findIndex((p) => p.id === project.id);
-  const prevProject = currentIndex > 0 ? allProjects[currentIndex - 1] : null;
-  const nextProject = currentIndex >= 0 && currentIndex < allProjects.length - 1 ? allProjects[currentIndex + 1] : null;
 
   const showRoleCol = Boolean(
     (project.contributions && project.contributions.length > 0) || project.role

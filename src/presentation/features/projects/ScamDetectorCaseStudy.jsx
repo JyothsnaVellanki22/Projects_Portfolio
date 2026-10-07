@@ -1,55 +1,18 @@
 import React from 'react';
-import { ArrowUpRightIcon, GithubIcon } from '../../common/Icons';
+import { CaseStudyNav, CaseStudyBottomBar } from './components/CaseStudyCommon';
 import './project-detail.css';
 
 export default function ScamDetectorCaseStudy({ 
   project, 
-  onBack, 
-  allProjects = [], 
-  onSelectProject 
+  onBack 
 }) {
   if (!project) return null;
 
   return (
     <div className="case-study-page-wrap">
       <div className="container case-study-container">
-        {/* ===================================================================
-            TOP SUB-NAV & BREADCRUMBS
-            =================================================================== */}
-        <nav className="case-study-top-nav" aria-label="Case Study Navigation">
-          <button 
-            type="button" 
-            className="btn-case-study-back" 
-            onClick={onBack}
-            title="Return to projects list"
-          >
-            <span>&larr; Back to All Projects</span>
-          </button>
-
-          <div className="case-study-breadcrumbs">
-            <span>Projects</span>
-            <span className="case-study-breadcrumb-sep">/</span>
-            <span style={{ textTransform: 'capitalize' }}>Security &amp; ML</span>
-            <span className="case-study-breadcrumb-sep">/</span>
-            <span className="case-study-breadcrumb-active">Spam Mail Detector</span>
-          </div>
-
-          <div className="case-study-nav-links">
-            {project.githubUrl && (
-              <a 
-                href={project.githubUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn-case-study-github"
-                style={{ padding: '0.45rem 0.9rem', fontSize: '0.82rem' }}
-                title="View GitHub repository"
-              >
-                <GithubIcon size={15} />
-                <span>Code</span>
-              </a>
-            )}
-          </div>
-        </nav>
+        {/* TOP SUB-NAV & BREADCRUMBS */}
+        <CaseStudyNav project={project} onBack={onBack} />
 
         {/* ===================================================================
             CASE STUDY TITLE
@@ -749,32 +712,8 @@ export default function ScamDetectorCaseStudy({
           </div>
         </section>
 
-        {/* ===================================================================
-            BOTTOM ACTIONS
-            =================================================================== */}
-        <div className="case-study-bottom-bar">
-          <div className="case-study-action-buttons">
-            {project.githubUrl && (
-              <a 
-                href={project.githubUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn-case-study-github"
-              >
-                <GithubIcon size={18} />
-                <span>View Source Code</span>
-              </a>
-            )}
-          </div>
-
-          <button 
-            type="button" 
-            className="btn-case-study-back" 
-            onClick={onBack}
-          >
-            &larr; Back to All Projects
-          </button>
-        </div>
+        {/* BOTTOM ACTIONS */}
+        <CaseStudyBottomBar project={project} onBack={onBack} />
       </div>
     </div>
   );

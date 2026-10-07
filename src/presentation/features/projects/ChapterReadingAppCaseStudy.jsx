@@ -1,69 +1,34 @@
 import React from 'react';
+import { CaseStudyNav, CaseStudyHeader, CaseStudyCallout, CaseStudyBottomBar } from './components/CaseStudyCommon';
 import './project-detail.css';
 
 export default function ChapterReadingAppCaseStudy({ 
   project, 
-  onBack, 
-  allProjects = [], 
-  onSelectProject 
+  onBack 
 }) {
   if (!project) return null;
 
   return (
     <div className="case-study-page-wrap">
       <div className="container case-study-container">
-        {/* ===================================================================
-            TOP SUB-NAV & BREADCRUMBS
-            =================================================================== */}
-        <nav className="case-study-top-nav" aria-label="Case Study Navigation">
-          <button 
-            type="button" 
-            className="btn-case-study-back" 
-            onClick={onBack}
-            title="Return to projects list"
-          >
-            <span>&larr; Back to All Projects</span>
-          </button>
+        {/* Top Navigation */}
+        <CaseStudyNav project={project} onBack={onBack} />
 
-          <div className="case-study-breadcrumbs">
-            <span>Projects</span>
-            <span className="case-study-breadcrumb-sep">/</span>
-            <span style={{ textTransform: 'capitalize' }}>Client Work</span>
-            <span className="case-study-breadcrumb-sep">/</span>
-            <span className="case-study-breadcrumb-active">Chapter Reading Engagement Platform</span>
-          </div>
+        {/* Case Study Header */}
+        <CaseStudyHeader 
+          title="Chapter Reading Engagement Platform"
+          subtitle="Connecting student reading activity with educator insights"
+        />
 
-          <div className="case-study-nav-links">
-            <span className="type-badge" style={{ backgroundColor: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#10b981', fontWeight: 600, marginRight: '0.5rem' }}>
-              Client Work • Chapter Reading LLC
-            </span>
-          </div>
-        </nav>
-
-        {/* ===================================================================
-            CASE STUDY TITLE & TAGLINE
-            =================================================================== */}
-        <header className="case-study-header">
-          <h1 className="case-study-title">
-            Chapter Reading Engagement Platform
-          </h1>
-          <p className="case-study-subtitle">
-            Connecting student reading activity with educator insights
-          </p>
-        </header>
-
-        {/* ===================================================================
-            EXECUTIVE SUMMARY CALLOUT
-            =================================================================== */}
-        <div className="problem-statement-callout" style={{ margin: '1.5rem 0 2.5rem' }}>
-          <span className="problem-statement-badge">PROJECT OVERVIEW</span>
+        {/* Executive Summary Callout */}
+        <CaseStudyCallout badge="PROJECT OVERVIEW">
           <p className="problem-statement-text" style={{ fontSize: '1.02rem', lineHeight: '1.75' }}>
             At Chapter Reading LLC, I worked within an agile engineering team consisting of 2 software engineers and 2 data engineers, leading full-stack development work on a reading engagement platform that connected student reading activity with professor-facing analytics. My work covered React and TypeScript interfaces, Python FastAPI backend workflows, PostgreSQL data architecture, and Supabase integration. The platform brought together course content, annotations, reading progress, authentication, and role-based application experiences.
           </p>
           <p className="problem-statement-text" style={{ fontSize: '0.96rem', marginTop: '0.85rem', color: 'var(--color-ink-muted)' }}>
             The central goal was to give students a structured place to engage with assigned texts and give educators better visibility into that engagement. In close collaboration with our fellow software engineers and data engineering teammates, I helped build the application and data foundation for those workflows, while preparing structured information for future LLM-powered insights, concept extraction, and engagement reporting.
           </p>
-        </div>
+        </CaseStudyCallout>
 
         {/* ===================================================================
             PROJECT OVERVIEW TABLE
@@ -519,18 +484,11 @@ export default function ChapterReadingAppCaseStudy({
         {/* ===================================================================
             BOTTOM ACTIONS
             =================================================================== */}
-        <div className="case-study-bottom-bar" style={{ marginTop: '3.5rem' }}>
-          <div className="case-study-action-buttons">
-            <button 
-              type="button" 
-              className="btn-case-study-back" 
-              onClick={onBack}
-              style={{ margin: 0 }}
-            >
-              <span>&larr; Back to All Projects</span>
-            </button>
-          </div>
-        </div>
+        <CaseStudyBottomBar 
+          project={project} 
+          onBack={onBack} 
+          metaLabel="Client Work • Chapter Reading LLC"
+        />
       </div>
     </div>
   );

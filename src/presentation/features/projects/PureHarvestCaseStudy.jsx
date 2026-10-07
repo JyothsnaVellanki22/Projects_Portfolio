@@ -1,48 +1,20 @@
 import React from 'react';
+import { CaseStudyNav, CaseStudyCallout, CaseStudyBottomBar } from './components/CaseStudyCommon';
 import './project-detail.css';
 
 export default function PureHarvestCaseStudy({ 
   project, 
-  onBack, 
-  allProjects = [], 
-  onSelectProject 
+  onBack 
 }) {
   if (!project) return null;
 
   return (
     <div className="case-study-page-wrap">
       <div className="container case-study-container">
-        {/* ===================================================================
-            TOP SUB-NAV & BREADCRUMBS
-            =================================================================== */}
-        <nav className="case-study-top-nav" aria-label="Project Navigation">
-          <button 
-            type="button" 
-            className="btn-case-study-back" 
-            onClick={onBack}
-            title="Return to projects list"
-          >
-            <span>&larr; Back to All Projects</span>
-          </button>
+        {/* Top Navigation */}
+        <CaseStudyNav project={project} onBack={onBack} />
 
-          <div className="case-study-breadcrumbs">
-            <span>Projects</span>
-            <span className="case-study-breadcrumb-sep">/</span>
-            <span style={{ textTransform: 'capitalize' }}>Client Work</span>
-            <span className="case-study-breadcrumb-sep">/</span>
-            <span className="case-study-breadcrumb-active">Pure Harvest</span>
-          </div>
-
-          <div className="case-study-nav-links">
-            <span className="type-badge" style={{ backgroundColor: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#10b981', fontWeight: 600 }}>
-              Client Work
-            </span>
-          </div>
-        </nav>
-
-        {/* ===================================================================
-            HEADER (Title & Subtitle)
-            =================================================================== */}
+        {/* HEADER (Title & Subtitle) */}
         <header className="case-study-header">
           <div style={{ display: 'inline-block', marginBottom: '0.5rem' }}>
             <span className="case-study-kicker">CLIENT WORK &bull; AGTECH &bull; DIRECT-TO-CONSUMER PLATFORM</span>
@@ -55,18 +27,15 @@ export default function PureHarvestCaseStudy({
           </p>
         </header>
 
-        {/* ===================================================================
-            EXECUTIVE OVERVIEW CALLOUT
-            =================================================================== */}
-        <div className="problem-statement-callout" style={{ margin: '1.5rem 0 2.25rem' }}>
-          <span className="problem-statement-badge">MISSION OVERVIEW</span>
+        {/* EXECUTIVE OVERVIEW CALLOUT */}
+        <CaseStudyCallout badge="MISSION OVERVIEW" calloutStyle={{ margin: '1.5rem 0 2.25rem' }}>
           <p className="problem-statement-text" style={{ fontSize: '1.05rem', lineHeight: '1.75' }}>
             <strong>Sponsor a Harvest, Empower a Farmer.</strong> PureHarvest connects consumers directly with regional farmers across Andhra Pradesh and Telangana. By skipping layers of traditional middlemen, consumers support regional agriculture and receive fresh seasonal crops at their doorstep, while farmers secure reliable upfront seasonal sponsorship.
           </p>
           <p className="problem-statement-text" style={{ fontSize: '0.96rem', marginTop: '0.85rem', color: 'var(--color-ink-muted)' }}>
             The platform combines a public consumer experience for farm browsing and crop batch sponsorship with a dedicated <strong>Rythu Dashboard</strong> where farmers manage active subscription plans, track monthly revenues, and broadcast real-time harvest milestones to their sponsors.
           </p>
-        </div>
+        </CaseStudyCallout>
 
         {/* ===================================================================
             PROJECT AT A GLANCE TABLE
@@ -391,22 +360,11 @@ export default function PureHarvestCaseStudy({
         {/* ===================================================================
             BOTTOM ACTIONS
             =================================================================== */}
-        <div className="case-study-bottom-bar">
-          <div className="case-study-action-buttons">
-            <span style={{ fontSize: '0.88rem', color: 'var(--color-ink-faint)' }}>
-              Client Work &bull; Pure Harvest
-            </span>
-          </div>
-
-          <button 
-            type="button" 
-            className="btn-case-study-back" 
-            onClick={onBack}
-            style={{ margin: 0 }}
-          >
-            <span>&larr; Back to All Projects</span>
-          </button>
-        </div>
+        <CaseStudyBottomBar 
+          project={project} 
+          onBack={onBack} 
+          metaLabel="Client Work • Pure Harvest"
+        />
       </div>
     </div>
   );

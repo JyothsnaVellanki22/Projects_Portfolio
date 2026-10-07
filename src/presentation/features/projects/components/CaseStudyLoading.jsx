@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function CaseStudyLoading({ onBack }) {
+export default function CaseStudyLoading() {
   return (
     <div className="case-study-page-wrap" style={{ minHeight: '60vh', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
       <div className="container case-study-container" style={{ textAlign: 'center', padding: '4rem 1rem' }}>

@@ -1,4 +1,5 @@
 import React from 'react';
+import { CaseStudyNav, CaseStudyCallout, CaseStudyBottomBar } from './components/CaseStudyCommon';
 import './project-detail.css';
 
 export default function TPOCaseStudy({ 
@@ -19,33 +20,16 @@ export default function TPOCaseStudy({
   return (
     <div className="case-study-page-wrap">
       <div className="container case-study-container">
-        {/* ===================================================================
-            TOP SUB-NAV & BREADCRUMBS
-            =================================================================== */}
-        <nav className="case-study-top-nav" aria-label="Case Study Navigation">
-          <button 
-            type="button" 
-            className="btn-case-study-back" 
-            onClick={onBack}
-            title="Return to projects list"
-          >
-            <span>&larr; Back to All Projects</span>
-          </button>
-
-          <div className="case-study-breadcrumbs">
-            <span>Projects</span>
-            <span className="case-study-breadcrumb-sep">/</span>
-            <span style={{ textTransform: 'capitalize' }}>Client Work</span>
-            <span className="case-study-breadcrumb-sep">/</span>
-            <span className="case-study-breadcrumb-active">TPO Platform</span>
-          </div>
-
-          <div className="case-study-nav-links">
+        {/* TOP SUB-NAV & BREADCRUMBS */}
+        <CaseStudyNav 
+          project={project} 
+          onBack={onBack} 
+          customBadge={
             <span className="type-badge" style={{ backgroundColor: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#10b981', fontWeight: 600 }}>
               Client Work &bull; CONA Services
             </span>
-          </div>
-        </nav>
+          }
+        />
 
         {/* ===================================================================
             CASE STUDY HEADER
@@ -65,15 +49,14 @@ export default function TPOCaseStudy({
         {/* ===================================================================
             PROJECT OVERVIEW / PROBLEM STATEMENT CALLOUT
             =================================================================== */}
-        <div className="problem-statement-callout" style={{ margin: '1.5rem 0 2.25rem' }}>
-          <span className="problem-statement-badge">PROJECT OVERVIEW</span>
+        <CaseStudyCallout badge="PROJECT OVERVIEW" calloutStyle={{ margin: '1.5rem 0 2.25rem' }}>
           <p className="problem-statement-text" style={{ fontSize: '1.02rem', lineHeight: '1.75' }}>
             At <strong>CONA Services</strong>, I worked on the <strong>Trade Promotion Optimization (TPO) platform</strong> and an AI-powered enterprise <strong>Agent Platform</strong> that helped business teams access promotion insights, sales analytics, and operational data. My work connected Angular micro-frontends, Python backend services, PostgreSQL data, and automated delivery to production Linux servers.
           </p>
           <p className="problem-statement-text" style={{ fontSize: '0.96rem', marginTop: '0.85rem', color: 'var(--color-ink-muted)' }}>
             The platform combined conventional application workflows with natural-language access through <strong>retrieval-augmented generation (RAG)</strong>. This gave users a dashboard-based experience for established workflows and a conversational interface for investigating business information. Docker and CI/CD automation reduced deployment time by a reported <strong>40%</strong>, while testing and monitoring supported a reported <strong>99.9%</strong> availability.
           </p>
-        </div>
+        </CaseStudyCallout>
 
         {/* ===================================================================
             PROJECT AT A GLANCE TABLE
@@ -498,25 +481,12 @@ export default function TPOCaseStudy({
           </div>
         </section>
 
-        {/* ===================================================================
-            BOTTOM ACTIONS
-            =================================================================== */}
-        <div className="case-study-bottom-bar">
-          <div className="case-study-action-buttons">
-            <span style={{ fontSize: '0.88rem', color: 'var(--color-ink-faint)' }}>
-              CONA Services &bull; Enterprise Platform Engineering
-            </span>
-          </div>
-
-          <button 
-            type="button" 
-            className="btn-case-study-back" 
-            onClick={onBack}
-            style={{ margin: 0 }}
-          >
-            <span>&larr; Back to All Projects</span>
-          </button>
-        </div>
+        {/* BOTTOM ACTIONS */}
+        <CaseStudyBottomBar 
+          project={project} 
+          onBack={onBack} 
+          metaLabel="CONA Services • Enterprise Platform Engineering" 
+        />
       </div>
     </div>
   );
