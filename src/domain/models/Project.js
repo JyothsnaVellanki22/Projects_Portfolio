@@ -2,6 +2,21 @@
  * Domain Model: Project
  * Represents a software engineering project entity, pure of UI or framework dependencies.
  */
+function sanitizeSafeUrl(url) {
+  if (!url || typeof url !== 'string') return null;
+  const trimmed = url.trim();
+  if (trimmed.startsWith('/') || trimmed.startsWith('#')) return trimmed;
+  try {
+    const parsed = new URL(trimmed);
+    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
+      return trimmed;
+    }
+    return null;
+  } catch {
+    return null;
+  }
+}
+
 export class Project {
   constructor({
     id,
@@ -39,9 +54,9 @@ export class Project {
     this.clientName = clientName;
     this.status = status;
     this.isLive = Boolean(isLive);
-    this.liveUrl = liveUrl;
-    this.githubUrl = githubUrl;
-    this.docsUrl = docsUrl;
+    this.liveUrl = sanitizeSafeUrl(liveUrl);
+    this.githubUrl = sanitizeSafeUrl(githubUrl);
+    this.docsUrl = sanitizeSafeUrl(docsUrl);
     this.image = image;
     this.screenshots = Array.isArray(screenshots) ? screenshots : [];
     this.summary = summary;
@@ -56,7 +71,7 @@ export class Project {
     this.goals = Array.isArray(goals) ? goals : [];
     this.takeaways = Array.isArray(takeaways) ? takeaways : [];
     this.caseStudySections = Array.isArray(caseStudySections) ? caseStudySections : [];
-    this.pdfUrl = pdfUrl;
+    this.pdfUrl = sanitizeSafeUrl(pdfUrl);
   }
 
   isClientProject() {

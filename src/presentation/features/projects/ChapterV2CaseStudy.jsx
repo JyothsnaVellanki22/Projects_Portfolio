@@ -124,20 +124,24 @@ export default function ChapterV2CaseStudy({
                 </tr>
                 <tr>
                   <td><strong>Role</strong></td>
-                  <td><strong>Sole Full Stack Developer</strong> (Chapter Reading LLC)</td>
+                  <td><strong>Full Stack Developer</strong> (Chapter Reading LLC)</td>
+                </tr>
+                <tr>
+                  <td><strong>Team Composition</strong></td>
+                  <td>Collaborative engineering team of <strong>2 Software Engineers</strong> and <strong>2 Data Engineers</strong></td>
                 </tr>
                 <tr>
                   <td><strong>Implemented Work</strong></td>
-                  <td>Entire client presentation website built end-to-end: UI design system, reader simulations, annotation sweep engine, educator analytics scrubber, accordion workflows, common questions FAQ, and conversion touchpoints</td>
+                  <td>Interactive client presentation website: UI design system, reader simulations, annotation sweep engine, educator analytics scrubber, accordion workflows, common questions FAQ, and conversion touchpoints built in collaboration with the team</td>
                 </tr>
               </tbody>
             </table>
           </div>
 
           <div className="problem-statement-callout" style={{ margin: '1.25rem 0 0.5rem', background: 'rgba(16, 185, 129, 0.05)', borderColor: 'rgba(16, 185, 129, 0.3)' }}>
-            <span className="problem-statement-badge" style={{ background: '#10b981', color: '#fff' }}>AUTHORSHIP & ROLE</span>
+            <span className="problem-statement-badge" style={{ background: '#10b981', color: '#fff' }}>TEAM & ROLE</span>
             <p className="problem-statement-text" style={{ fontSize: '0.96rem', color: 'var(--color-ink)' }}>
-              <strong>Sole Full-Stack Developer:</strong> The entire ChapterV2 website was engineered and built end-to-end by Jyothsna Vellanki for Chapter Reading LLC—including semantic architecture, interactive browser simulations, responsive layout design, educator analytics preview, and external integration pathways.
+              <strong>Full-Stack Developer:</strong> Engineered as part of an agile team alongside 2 software engineers and 2 data engineers at Chapter Reading LLC. I led the development of the ChapterV2 interactive client web application—delivering the semantic architecture, interactive browser simulations, responsive layout design, educator analytics preview, and external integration pathways.
             </p>
             <div style={{ marginTop: '0.75rem' }}>
               <button 

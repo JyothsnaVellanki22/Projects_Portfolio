@@ -8,6 +8,8 @@ export default function ProjectFilter({
   onSelectCategory,
   searchQuery,
   onSearchChange,
+  liveOnly = false,
+  onToggleLiveOnly,
   filteredCount,
   totalCount
 }) {
@@ -19,7 +21,7 @@ export default function ProjectFilter({
           <input 
             type="text"
             className="filter-search-input"
-            placeholder="Search projects (FastAPI, React, Ollama, NLP...)"
+            placeholder="Search projects (FastAPI, React, Ollama, NLP, Security...)"
             value={searchQuery}
             onChange={(e) => onSearchChange(e.target.value)}
             aria-label="Search projects"
@@ -39,6 +41,16 @@ export default function ProjectFilter({
               {cat.label}
             </button>
           ))}
+          {onToggleLiveOnly && (
+            <button
+              type="button"
+              className={`filter-tab-btn ${liveOnly ? 'active' : ''}`}
+              onClick={onToggleLiveOnly}
+              title="Show only projects with live deployed URLs"
+            >
+              ⚡ Live Only
+            </button>
+          )}
         </div>
 
         <div className="filter-meta-count">

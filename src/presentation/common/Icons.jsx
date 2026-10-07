@@ -76,7 +76,7 @@ export function ArrowUpRightIcon({ size = 16, color = 'currentColor', className 
   );
 }
 
-export function CloseIcon({ size = 18, color = 'currentColor', className = '' }) {
+export function MenuIcon({ size = 20, color = 'currentColor', className = '' }) {
   return (
     <svg 
       width={size} 
@@ -84,10 +84,32 @@ export function CloseIcon({ size = 18, color = 'currentColor', className = '' })
       viewBox="0 0 24 24" 
       fill="none" 
       stroke={color} 
-      strokeWidth="2" 
+      strokeWidth="2.2" 
       strokeLinecap="round" 
       strokeLinejoin="round" 
       className={className}
+      aria-hidden="true"
+    >
+      <line x1="4" y1="6" x2="20" y2="6"></line>
+      <line x1="4" y1="12" x2="20" y2="12"></line>
+      <line x1="4" y1="18" x2="20" y2="18"></line>
+    </svg>
+  );
+}
+
+export function CloseIcon({ size = 20, color = 'currentColor', className = '' }) {
+  return (
+    <svg 
+      width={size} 
+      height={size} 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke={color} 
+      strokeWidth="2.2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      className={className}
+      aria-hidden="true"
     >
       <path d="M18 6 6 18"></path>
       <path d="m6 6 12 12"></path>
