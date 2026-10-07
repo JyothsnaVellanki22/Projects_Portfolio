@@ -1,0 +1,15 @@
+/* ==========================================================================
+   GLOBAL ENTRYPOINT STYLES
+   Imports foundational tokens, reset, and feature stylesheets
+   ========================================================================== */
+
+@import './presentation/styles/tokens.css';
+@import './presentation/styles/reset.css';
+@import './presentation/features/navigation/header.css';
+@import './presentation/features/hero/hero.css';
+@import './presentation/features/projects/projects.css';
+@import './presentation/features/projects/project-detail.css';
+@import './presentation/features/projects/featured-showcase.css';
+@import './presentation/features/about/about.css';
+@import './presentation/features/footer/footer.css';
+@import './presentation/common/modal.css';

@@ -1,0 +1,400 @@
+/* Reusable Modal Styles - Unified Font & Responsive Across All Devices */
+.editorial-modal-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background-color: rgba(17, 17, 17, 0.65);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+  animation: modalFadeIn 0.2s ease-out;
+}
+
+.editorial-modal-window {
+  width: 100%;
+  max-width: 840px;
+  max-height: 88vh;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-modal);
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  animation: modalSlideUp 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  font-family: var(--font-primary);
+  text-align: left;
+}
+
+.editorial-modal-header {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  background-color: var(--color-surface);
+  padding: 1.25rem 1.75rem;
+  border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.editorial-modal-title {
+  font-family: var(--font-primary);
+  font-size: clamp(1.15rem, 2vw, 1.4rem);
+  font-weight: 800;
+  color: var(--color-ink);
+  letter-spacing: -0.02em;
+  text-align: left;
+}
+
+.editorial-modal-close {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  color: var(--color-ink-muted);
+  border: 1px solid var(--color-border);
+  transition: var(--transition-smooth);
+  flex-shrink: 0;
+  cursor: pointer;
+}
+
+.editorial-modal-close:hover {
+  color: var(--color-ink);
+  background-color: var(--color-canvas-subtle);
+  border-color: var(--color-ink);
+}
+
+.editorial-modal-content {
+  padding: 1.75rem;
+}
+
+/* Modal Inner Content Flow */
+.modal-inner-flow {
+  display: flex;
+  flex-direction: column;
+  gap: 1.75rem;
+  text-align: left;
+}
+
+/* Screenshot Showcase */
+.modal-gallery-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.modal-main-image-box {
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  border: 1px solid var(--color-border);
+  background-color: var(--color-surface-sunken);
+  aspect-ratio: 16 / 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-main-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.modal-thumbs-row {
+  display: flex;
+  gap: 0.65rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+.modal-thumb-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.65rem 0.35rem 0.35rem;
+  border: 1.5px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  background-color: var(--color-surface);
+  cursor: pointer;
+  transition: var(--transition-smooth);
+  white-space: nowrap;
+}
+
+.modal-thumb-btn.active {
+  border-color: var(--color-ink);
+  background-color: var(--color-canvas-subtle);
+}
+
+.modal-thumb-img {
+  width: 48px;
+  height: 32px;
+  object-fit: cover;
+  border-radius: 2px;
+}
+
+.modal-thumb-label {
+  font-family: var(--font-primary);
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+/* Header & Text Block */
+.modal-header-block {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.modal-category-badge {
+  font-family: var(--font-primary);
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-ink-faint);
+  font-weight: 700;
+  margin-bottom: 0.4rem;
+}
+
+.modal-project-heading {
+  font-family: var(--font-primary);
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--color-ink);
+  line-height: 1.2;
+  margin-bottom: 0.25rem;
+  text-align: left;
+}
+
+.modal-project-subheading {
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  color: var(--color-ink-muted);
+  font-weight: 500;
+  margin-bottom: 0.85rem;
+  text-align: left;
+}
+
+.modal-project-description {
+  font-family: var(--font-primary);
+  font-size: 1.02rem;
+  line-height: 1.65;
+  color: var(--color-ink);
+  font-weight: 400;
+  text-align: left;
+}
+
+/* Metrics Grid */
+.modal-metrics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 0.85rem;
+}
+
+.modal-metric-card {
+  padding: 0.85rem 1.1rem;
+  background-color: var(--color-canvas-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.modal-metric-val {
+  font-family: var(--font-primary);
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--color-ink);
+}
+
+.modal-metric-lbl {
+  font-family: var(--font-primary);
+  font-size: 0.76rem;
+  color: var(--color-ink-faint);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-top: 0.2rem;
+}
+
+/* Story Box */
+.modal-story-box {
+  background-color: var(--color-canvas-subtle);
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--color-ink);
+  text-align: left;
+}
+
+.modal-section-title {
+  font-family: var(--font-primary);
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: var(--color-ink);
+  text-align: left;
+}
+
+.modal-story-text {
+  font-family: var(--font-primary);
+  font-size: 0.94rem;
+  line-height: 1.65;
+  color: var(--color-ink-muted);
+  font-weight: 400;
+  text-align: left;
+}
+
+/* Architecture Grid */
+.modal-architecture-wrap {
+  text-align: left;
+}
+
+.modal-arch-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 0.85rem;
+}
+
+.modal-arch-card {
+  padding: 1rem 1.15rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  text-align: left;
+}
+
+.modal-arch-key {
+  font-family: var(--font-primary);
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: var(--color-ink-muted);
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 0.35rem;
+  text-align: left;
+}
+
+.modal-arch-val {
+  font-family: var(--font-primary);
+  font-size: 0.88rem;
+  color: var(--color-ink-muted);
+  line-height: 1.5;
+  font-weight: 400;
+  text-align: left;
+}
+
+/* Tech Stack */
+.modal-tech-wrap {
+  text-align: left;
+}
+
+.modal-tech-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+}
+
+.modal-tech-pill {
+  font-family: var(--font-primary);
+  font-size: 0.82rem;
+  font-weight: 600;
+  padding: 0.3rem 0.75rem;
+  background-color: var(--color-canvas-subtle);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  color: var(--color-ink);
+}
+
+/* Actions Bar */
+.modal-actions-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem;
+  padding-top: 1.25rem;
+  border-top: 1px solid var(--color-border);
+}
+
+.modal-secondary-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.6rem 1.25rem;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--color-border);
+  color: var(--color-ink);
+  font-size: 0.88rem;
+  font-weight: 700;
+  font-family: var(--font-primary);
+  transition: var(--transition-smooth);
+  text-decoration: none;
+}
+
+.modal-secondary-btn:hover {
+  border-color: var(--color-ink);
+  background-color: var(--color-canvas-subtle);
+}
+
+/* Modal Responsive Breakpoints */
+@media (max-width: 640px) {
+  .editorial-modal-overlay {
+    padding: 0.75rem;
+  }
+
+  .editorial-modal-window {
+    max-height: 94vh;
+  }
+
+  .editorial-modal-header {
+    padding: 1rem 1.25rem;
+  }
+
+  .editorial-modal-content {
+    padding: 1.25rem;
+  }
+
+  .modal-actions-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .modal-actions-bar .btn-editorial-explore,
+  .modal-actions-bar .modal-secondary-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .modal-arch-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .modal-metrics-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@keyframes modalFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes modalSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}

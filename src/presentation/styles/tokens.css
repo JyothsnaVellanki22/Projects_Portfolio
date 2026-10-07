@@ -1,0 +1,58 @@
+/* ==========================================================================
+   DESIGN TOKENS: MODERN, LATEST & UNIFIED TYPOGRAPHY (Inter Everywhere)
+   Crisp modern surfaces, generous whitespace, polished slate palette
+   ========================================================================== */
+
+:root {
+  /* Surfaces & Backgrounds */
+  --color-canvas: #ffffff;
+  --color-canvas-subtle: #f8fafc;
+  --color-surface: #ffffff;
+  --color-surface-hover: #ffffff;
+  --color-surface-sunken: #f1f5f9;
+
+  /* Crisp Modern Borders & Dividers */
+  --color-border: #e2e8f0;
+  --color-border-subtle: #f1f5f9;
+  --color-border-strong: #cbd5e1;
+  --color-border-focus: #0f172a;
+
+  /* Ink & Typography Hierarchy */
+  --color-ink: #0f172a;
+  --color-ink-light: #1e293b;
+  --color-ink-muted: #475569;
+  --color-ink-faint: #64748b;
+  --color-ink-inverse: #ffffff;
+
+  /* Accents */
+  --color-primary-accent: #0f172a;
+  --color-accent-hover: #334155;
+  
+  --color-live: #059669;
+  --color-live-bg: #ecfdf5;
+  --color-live-border: #a7f3d0;
+
+  /* Unified Single Font Family Across Entire Page */
+  --font-primary: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+  --font-sans: var(--font-primary);
+  --font-display: var(--font-primary);
+  --font-serif: var(--font-primary);
+  --font-mono: var(--font-primary);
+
+  /* Layout & Spacing */
+  --max-width: 1240px;
+  --header-height: 78px;
+  --radius-xs: 6px;
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  /* Modern Soft Shadows */
+  --shadow-subtle: 0 1px 3px rgba(0, 0, 0, 0.04);
+  --shadow-card: 0 4px 20px -2px rgba(15, 23, 42, 0.05);
+  --shadow-card-hover: 0 20px 32px -8px rgba(15, 23, 42, 0.1);
+  --shadow-modal: 0 25px 60px -15px rgba(15, 23, 42, 0.25);
+
+  --transition-smooth: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
