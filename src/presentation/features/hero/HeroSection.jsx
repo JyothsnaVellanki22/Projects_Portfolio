@@ -55,7 +55,7 @@ export default function HeroSection() {
 
           {/* Bio Lead */}
           <p className="hero-main-bio animate-hero-3">
-            I specialize in bridging modern machine learning models with production-grade software architecture. My work ranges from low-latency phishing classifiers and offline local LLM assistants to real-time AI reflection platforms.
+            I build full-stack software applications across frontend and backend systems, embedding intelligent AI bots and machine learning capabilities directly into production workflows.
           </p>
 
           {/* Action Row with Interactive Micro-Interactions */}
