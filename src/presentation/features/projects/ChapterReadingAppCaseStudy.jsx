@@ -58,10 +58,10 @@ export default function ChapterReadingAppCaseStudy({
         <div className="problem-statement-callout" style={{ margin: '1.5rem 0 2.5rem' }}>
           <span className="problem-statement-badge">PROJECT OVERVIEW</span>
           <p className="problem-statement-text" style={{ fontSize: '1.02rem', lineHeight: '1.75' }}>
-            At Chapter Reading LLC, I led development work on a reading engagement platform that connected student reading activity with professor-facing analytics. My work covered React and TypeScript interfaces, Python FastAPI backend workflows, PostgreSQL data architecture, and Supabase integration. The platform brought together course content, annotations, reading progress, authentication, and role-based application experiences.
+            At Chapter Reading LLC, I worked within an agile engineering team consisting of 2 software engineers and 2 data engineers, leading full-stack development work on a reading engagement platform that connected student reading activity with professor-facing analytics. My work covered React and TypeScript interfaces, Python FastAPI backend workflows, PostgreSQL data architecture, and Supabase integration. The platform brought together course content, annotations, reading progress, authentication, and role-based application experiences.
           </p>
           <p className="problem-statement-text" style={{ fontSize: '0.96rem', marginTop: '0.85rem', color: 'var(--color-ink-muted)' }}>
-            The central goal was to give students a structured place to engage with assigned texts and give educators better visibility into that engagement. I helped build the application and data foundation for those workflows, while preparing structured information for future LLM-powered insights, concept extraction, and engagement reporting.
+            The central goal was to give students a structured place to engage with assigned texts and give educators better visibility into that engagement. In close collaboration with our fellow software engineers and data engineering teammates, I helped build the application and data foundation for those workflows, while preparing structured information for future LLM-powered insights, concept extraction, and engagement reporting.
           </p>
         </div>
 
@@ -86,6 +86,10 @@ export default function ChapterReadingAppCaseStudy({
                 <tr>
                   <td><strong>Role & Timeline</strong></td>
                   <td><strong>Software Engineer</strong> • Remote Florida • May 2026 to August 2026 (Jyothsna Vellanki)</td>
+                </tr>
+                <tr>
+                  <td><strong>Team Composition</strong></td>
+                  <td>Collaborative team of <strong>2 Software Engineers</strong> and <strong>2 Data Engineers</strong></td>
                 </tr>
                 <tr>
                   <td><strong>Primary Users</strong></td>
@@ -131,7 +135,7 @@ export default function ChapterReadingAppCaseStudy({
               My Engineering Contribution
             </h4>
             <p className="case-study-paragraph">
-              I led frontend implementation and contributed across backend APIs, relational data models, SQL queries, and engagement analytics. I translated product requirements into application workflows, established reusable components and role-based navigation, and worked with product and engineering stakeholders on data structures that could support future AI features.
+              Working alongside 2 software engineers and 2 data engineers, I led frontend implementation and contributed across backend APIs, relational data models, SQL queries, and engagement analytics. I translated product requirements into application workflows, established reusable components and role-based navigation, and collaborated closely with the data engineering team on schema designs and data structures to power analytics and future AI features.
             </p>
           </div>
 

@@ -1,14 +1,17 @@
-import React from 'react';
+import React, { Suspense, lazy } from 'react';
 import { ArrowUpRightIcon, GithubIcon, FileTextIcon } from '../../common/Icons';
-import MyMindCaseStudy from './MyMindCaseStudy';
-import ScamDetectorCaseStudy from './ScamDetectorCaseStudy';
-import WHTCaseStudy from './WHTCaseStudy';
-import ChapterV2CaseStudy from './ChapterV2CaseStudy';
-import ChapterReadingAppCaseStudy from './ChapterReadingAppCaseStudy';
-import CONAMappingCaseStudy from './CONAMappingCaseStudy';
-import TPOCaseStudy from './TPOCaseStudy';
-import PureHarvestCaseStudy from './PureHarvestCaseStudy';
+import CaseStudyLoading from './components/CaseStudyLoading';
 import './project-detail.css';
+
+// Code-split case studies on demand to keep initial JavaScript bundle lean
+const MyMindCaseStudy = lazy(() => import('./MyMindCaseStudy'));
+const ScamDetectorCaseStudy = lazy(() => import('./ScamDetectorCaseStudy'));
+const WHTCaseStudy = lazy(() => import('./WHTCaseStudy'));
+const ChapterV2CaseStudy = lazy(() => import('./ChapterV2CaseStudy'));
+const ChapterReadingAppCaseStudy = lazy(() => import('./ChapterReadingAppCaseStudy'));
+const CONAMappingCaseStudy = lazy(() => import('./CONAMappingCaseStudy'));
+const TPOCaseStudy = lazy(() => import('./TPOCaseStudy'));
+const PureHarvestCaseStudy = lazy(() => import('./PureHarvestCaseStudy'));
 
 export default function ProjectDetailPage({ 
   project, 
@@ -18,91 +21,91 @@ export default function ProjectDetailPage({
 }) {
   if (!project) return null;
 
-  if (project.id === 'mymind') {
-    return (
-      <MyMindCaseStudy 
-        project={project}
-        onBack={onBack}
-        allProjects={allProjects}
-        onSelectProject={onSelectProject}
-      />
-    );
-  }
+  const renderCaseStudy = () => {
+    switch (project.id) {
+      case 'mymind':
+        return (
+          <MyMindCaseStudy 
+            project={project}
+            onBack={onBack}
+            allProjects={allProjects}
+            onSelectProject={onSelectProject}
+          />
+        );
+      case 'scam-mail-detector':
+        return (
+          <ScamDetectorCaseStudy 
+            project={project}
+            onBack={onBack}
+            allProjects={allProjects}
+            onSelectProject={onSelectProject}
+          />
+        );
+      case 'wht':
+        return (
+          <WHTCaseStudy 
+            project={project}
+            onBack={onBack}
+            allProjects={allProjects}
+            onSelectProject={onSelectProject}
+          />
+        );
+      case 'chapter-v2':
+        return (
+          <ChapterV2CaseStudy 
+            project={project}
+            onBack={onBack}
+            allProjects={allProjects}
+            onSelectProject={onSelectProject}
+          />
+        );
+      case 'chapter-reading-llc':
+        return (
+          <ChapterReadingAppCaseStudy 
+            project={project}
+            onBack={onBack}
+            allProjects={allProjects}
+            onSelectProject={onSelectProject}
+          />
+        );
+      case 'cona-mapping':
+        return (
+          <CONAMappingCaseStudy 
+            project={project}
+            onBack={onBack}
+            allProjects={allProjects}
+            onSelectProject={onSelectProject}
+          />
+        );
+      case 'tpo-platform':
+        return (
+          <TPOCaseStudy 
+            project={project}
+            onBack={onBack}
+            allProjects={allProjects}
+            onSelectProject={onSelectProject}
+          />
+        );
+      case 'pure-harvest':
+        return (
+          <PureHarvestCaseStudy 
+            project={project}
+            onBack={onBack}
+            allProjects={allProjects}
+            onSelectProject={onSelectProject}
+          />
+        );
+      default:
+        return null;
+    }
+  };
 
-  if (project.id === 'scam-mail-detector') {
+  const specificCaseStudy = renderCaseStudy();
+  if (specificCaseStudy) {
     return (
-      <ScamDetectorCaseStudy 
-        project={project}
-        onBack={onBack}
-        allProjects={allProjects}
-        onSelectProject={onSelectProject}
-      />
-    );
-  }
-
-  if (project.id === 'wht') {
-    return (
-      <WHTCaseStudy 
-        project={project}
-        onBack={onBack}
-        allProjects={allProjects}
-        onSelectProject={onSelectProject}
-      />
-    );
-  }
-
-  if (project.id === 'chapter-v2') {
-    return (
-      <ChapterV2CaseStudy 
-        project={project}
-        onBack={onBack}
-        allProjects={allProjects}
-        onSelectProject={onSelectProject}
-      />
-    );
-  }
-
-  if (project.id === 'chapter-reading-llc') {
-    return (
-      <ChapterReadingAppCaseStudy 
-        project={project}
-        onBack={onBack}
-        allProjects={allProjects}
-        onSelectProject={onSelectProject}
-      />
-    );
-  }
-
-  if (project.id === 'cona-mapping') {
-    return (
-      <CONAMappingCaseStudy 
-        project={project}
-        onBack={onBack}
-        allProjects={allProjects}
-        onSelectProject={onSelectProject}
-      />
-    );
-  }
-
-  if (project.id === 'tpo-platform') {
-    return (
-      <TPOCaseStudy 
-        project={project}
-        onBack={onBack}
-        allProjects={allProjects}
-        onSelectProject={onSelectProject}
-      />
-    );
-  }
-
-  if (project.id === 'pure-harvest') {
-    return (
-      <PureHarvestCaseStudy 
-        project={project}
-        onBack={onBack}
-        allProjects={allProjects}
-        onSelectProject={onSelectProject}
-      />
+      <Suspense fallback={<CaseStudyLoading onBack={onBack} />}>
+        {specificCaseStudy}
+      </Suspense>
     );
   }
 

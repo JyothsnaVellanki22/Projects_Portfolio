@@ -1,5 +1,6 @@
 import React from 'react';
 import ProjectList from './ProjectList';
+import ProjectFilter from './ProjectFilter';
 import './projects.css';
 
 export default function AllProjectsPage({
@@ -45,6 +46,19 @@ export default function AllProjectsPage({
             Explore complete case studies across Generative AI systems, RAG pipelines, security audits, and production web applications.
           </p>
         </header>
+
+        {/* Filter & Search Bar */}
+        <ProjectFilter 
+          categories={categories}
+          selectedCategory={selectedCategory}
+          onSelectCategory={onSelectCategory}
+          searchQuery={searchQuery}
+          onSearchChange={onSearchChange}
+          liveOnly={liveOnly}
+          onToggleLiveOnly={onToggleLiveOnly}
+          filteredCount={filteredCount}
+          totalCount={totalCount}
+        />
 
         {/* Projects Grid */}
         <ProjectList 

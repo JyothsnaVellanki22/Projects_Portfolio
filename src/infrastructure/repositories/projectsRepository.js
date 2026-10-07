@@ -25,11 +25,12 @@ class ProjectsRepository {
           "/assets/projects/chapter_app_interactive_annotations.png"
         ],
         summary: "Full-stack reading engagement platform combining React & TypeScript interfaces, Python FastAPI workflows, PostgreSQL data models, and Supabase auth to turn student reading interactions into professor-facing analytics.",
-        description: "At Chapter Reading LLC, I led development work on a reading engagement platform that connected student reading activity with professor-facing analytics. My work covered React and TypeScript interfaces, Python FastAPI backend workflows, PostgreSQL data architecture, and Supabase integration. The platform brought together course content, annotations, reading progress, authentication, and role-based application experiences across students, professors, and administrators.",
+        description: "At Chapter Reading LLC, I worked within an agile engineering team of 2 software engineers and 2 data engineers, leading development work on a reading engagement platform that connected student reading activity with professor-facing analytics. My work covered React and TypeScript interfaces, Python FastAPI backend workflows, PostgreSQL data architecture, and Supabase integration. The platform brought together course content, annotations, reading progress, authentication, and role-based application experiences across students, professors, and administrators.",
         story: "Assigned reading alone gives an educator limited visibility into how students interact with a text. Chapter addressed this by joining the reading experience with an analytics workflow. The engineering challenge was to preserve the context of student activity, organize it by course and content, and make it accessible through role-based experiences while preparing data structures for future AI features.",
         techStack: ["React", "TypeScript", "Python", "FastAPI", "PostgreSQL", "Supabase", "SQL", "RBAC"],
         keyMetrics: [
           { label: "Role", value: "Software Engineer" },
+          { label: "Team", value: "2 SWEs + 2 Data Engineers" },
           { label: "Backend & Data", value: "FastAPI + PostgreSQL" },
           { label: "Architecture", value: "Full-Stack + Supabase RBAC" }
         ],
@@ -40,7 +41,7 @@ class ProjectsRepository {
           auth: "Supabase database services and role-based access control (RBAC) enforcing data boundary isolation."
         },
         timeline: "May 2026 – August 2026 (Remote Florida)",
-        role: "Software Engineer (Chapter Reading LLC)",
+        role: "Software Engineer • Team of 2 SWEs & 2 DEs (Chapter Reading LLC)",
         contributions: [
           "Led frontend implementation in React & TypeScript, establishing reusable UI components and role-based navigation",
           "Engineered Python FastAPI REST APIs and backend workflows for annotations, progress, and course-level summaries",
@@ -82,13 +83,13 @@ class ProjectsRepository {
           "/assets/projects/chapter_footer.png"
         ],
         summary: "Interactive product website connecting active student reading with educator insight through browser-native reader simulations, live annotation sequences, and an interactive analytics exploration dashboard.",
-        description: "Built the entire ChapterV2 client marketing and presentation website end-to-end for Chapter Reading LLC. The implementation turns the product story into an interactive public web application with a browser-native reader demonstration, live annotation sweeps, an interactive educator analytics preview, and conversion pathways.",
+        description: "Engineered the ChapterV2 client presentation web application for Chapter Reading LLC in collaboration with an engineering team of 2 software engineers and 2 data engineers. The implementation turns the product story into an interactive public web application with a browser-native reader demonstration, live annotation sweeps, an interactive educator analytics preview, and conversion pathways.",
         story: "The strongest engineering contribution is a detailed product tour built with browser-native technologies. Chapter’s product premise is that assigned reading does not give educators immediate visibility into what students understand. The website turns engagement signals into visible reader simulations and interactive analytics without heavy runtime dependencies.",
         techStack: ["HTML5", "CSS3", "JavaScript", "Browser APIs", "Lenis 1.0.42", "IntersectionObserver", "Vercel"],
         keyMetrics: [
           { label: "Engineering", value: "Browser-Native" },
           { label: "Analytics", value: "13-Page Scrubber" },
-          { label: "Scope", value: "Entire Site Built End-to-End" }
+          { label: "Team", value: "2 SWEs + 2 Data Engineers" }
         ],
         architecture: {
           client: "Semantic HTML5, CSS3 Grid/Flexbox, and vanilla JavaScript with Lenis 1.0.42 smooth scrolling.",
@@ -97,9 +98,9 @@ class ProjectsRepository {
           animations: "CSS 3D perspective card flips, keyframe highlights, and IntersectionObserver scroll triggers."
         },
         timeline: "July 2026 (Client Engagement)",
-        role: "Sole Full Stack Developer (Chapter Reading LLC)",
+        role: "Full Stack Developer (Chapter Reading LLC)",
         contributions: [
-          "Engineered the entire client presentation website end-to-end",
+          "Engineered the client presentation web application in collaboration with 2 software engineers and 2 data engineers",
           "Browser-native product tour and simulated annotation sweeps",
           "Interactive 13-page educator analytics dashboard with pointer scrubber",
           "Interactive accordion processes, common questions FAQ, and conversion footer",

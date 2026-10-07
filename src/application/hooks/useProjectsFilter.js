@@ -35,11 +35,15 @@ export function useProjectsFilter() {
       const params = new URLSearchParams(window.location.search);
       const projectId = params.get('project');
       const view = params.get('view');
+      const from = params.get('from');
 
       if (projectId) {
         const found = allProjects.find((p) => p.id === projectId);
         if (found) {
           setActiveProject(found);
+          if (from === 'projects') {
+            openedFromAllProjectsRef.current = true;
+          }
           window.scrollTo({ top: 0, behavior: 'instant' });
           return;
         }
@@ -64,6 +68,7 @@ export function useProjectsFilter() {
   const navigateToAllProjects = useCallback(() => {
     setActiveProject(null);
     setIsAllProjectsView(true);
+    openedFromAllProjectsRef.current = true;
     const newUrl = `${window.location.pathname}?view=projects`;
     window.history.pushState({ view: 'projects' }, '', newUrl);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -73,6 +78,7 @@ export function useProjectsFilter() {
   const navigateToHome = useCallback(() => {
     setActiveProject(null);
     setIsAllProjectsView(false);
+    openedFromAllProjectsRef.current = false;
     const newUrl = window.location.pathname;
     window.history.pushState(null, '', newUrl);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -81,17 +87,23 @@ export function useProjectsFilter() {
   // Open individual project full-page view
   const openProject = useCallback((project) => {
     if (!project) return;
-    openedFromAllProjectsRef.current = isAllProjectsView;
+    const isFromAll = isAllProjectsView;
+    openedFromAllProjectsRef.current = isFromAll;
     setActiveProject(project);
-    const newUrl = `${window.location.pathname}?project=${project.id}`;
-    window.history.pushState({ projectId: project.id }, '', newUrl);
+    const fromParam = isFromAll ? '&from=projects' : '';
+    const newUrl = `${window.location.pathname}?project=${encodeURIComponent(project.id)}${fromParam}`;
+    window.history.pushState({ projectId: project.id, from: isFromAll ? 'projects' : 'home' }, '', newUrl);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }, [isAllProjectsView]);
 
-  // Close project detail page (returns to All Projects if opened there, else Home)
+  // Close project detail page (returns to All Projects if opened there or URL contains from=projects, else Home)
   const closeProject = useCallback(() => {
+    const params = new URLSearchParams(window.location.search);
+    const from = params.get('from');
+    const returnToAll = from === 'projects' || openedFromAllProjectsRef.current;
+
     setActiveProject(null);
-    if (openedFromAllProjectsRef.current) {
+    if (returnToAll) {
       setIsAllProjectsView(true);
       const newUrl = `${window.location.pathname}?view=projects`;
       window.history.pushState({ view: 'projects' }, '', newUrl);

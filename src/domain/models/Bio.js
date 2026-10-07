@@ -9,7 +9,7 @@ export const PERSONAL_BIO = {
   tagline: "Software Engineer | Architecting Generative AI, RAG Systems & Scalable Solutions",
   bioStatement: "I am a Software Engineer with a deep focus on Generative AI, Retrieval-Augmented Generation (RAG), and production full-stack systems. I specialize in building intelligent, performant applications that bridge machine learning models with robust software architecture—from local LLM inference engines and machine learning security classifiers to real-time AI reflection platforms.",
   projectsInvitation: "View some of my popular projects!",
-  contactEmail: "vellankijyothsna22@gmail.com",
+  contactEmail: "jyothsna.v.s24@gmail.com",
   location: "Atlanta, GA",
   company: "Chapter Reading LLC",
   links: {
@@ -18,7 +18,7 @@ export const PERSONAL_BIO = {
     portfolioLive: "https://portfolio-v2-portfolio.vercel.app/"
   },
   stats: [
-    { label: "Selected Projects", value: "11" },
+    { label: "Selected Projects", value: "15" },
     { label: "Live in Production", value: "6" },
     { label: "ML Classification", value: "97% Accuracy" },
     { label: "Current Focus", value: "AI & Security" }

@@ -3,13 +3,13 @@ import Modal from '../../common/Modal';
 import { ArrowUpRightIcon, GithubIcon } from '../../common/Icons';
 
 export default function ProjectModal({ project, onClose }) {
+  const [activeIdx, setActiveIdx] = useState(0);
+
   if (!project) return null;
 
   const screenshots = project.screenshots && project.screenshots.length > 0 
     ? project.screenshots 
     : [project.image];
-
-  const [activeIdx, setActiveIdx] = useState(0);
 
   // Labels for screenshot previews if known
   const getScreenshotLabel = (url, idx) => {
