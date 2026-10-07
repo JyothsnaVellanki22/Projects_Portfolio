@@ -28,18 +28,6 @@ export default function Header({ onNavigateHome, onNavigateProjects, isAllProjec
     if (onNavigateProjects) onNavigateProjects();
   };
 
-  const handleAboutClick = (e) => {
-    setMobileMenuOpen(false);
-    if (onNavigateHome) {
-      e.preventDefault();
-      onNavigateHome();
-      setTimeout(() => {
-        const el = document.querySelector('#about');
-        if (el) el.scrollIntoView({ behavior: 'smooth' });
-      }, 80);
-    }
-  };
-
   const handleContactClick = (e) => {
     setMobileMenuOpen(false);
     if (onNavigateHome) {
@@ -82,15 +70,6 @@ export default function Header({ onNavigateHome, onNavigateProjects, isAllProjec
                   onClick={handleProjectsClick}
                 >
                   Projects
-                </a>
-              </li>
-              <li>
-                <a 
-                  href="#about" 
-                  className="site-nav-link"
-                  onClick={handleAboutClick}
-                >
-                  About
                 </a>
               </li>
               <li>

@@ -5,24 +5,12 @@ import HeroSection from './presentation/features/hero/HeroSection';
 import FeaturedProjectsShowcase from './presentation/features/projects/FeaturedProjectsShowcase';
 import AllProjectsPage from './presentation/features/projects/AllProjectsPage';
 import ProjectDetailPage from './presentation/features/projects/ProjectDetailPage';
-import AboutSection from './presentation/features/about/AboutSection';
 import Footer from './presentation/features/footer/Footer';
 
 export default function App() {
   const {
     allProjects,
     featuredProjects,
-    projects,
-    totalCount,
-    filteredCount,
-    categories,
-    selectedCategory,
-    setSelectedCategory,
-    searchQuery,
-    setSearchQuery,
-    liveOnly,
-    setLiveOnly,
-    resetFilters,
     activeProject,
     isAllProjectsView,
     openProject,
@@ -49,18 +37,8 @@ export default function App() {
           />
         ) : isAllProjectsView ? (
           <AllProjectsPage 
-            projects={projects}
-            categories={categories}
-            selectedCategory={selectedCategory}
-            onSelectCategory={setSelectedCategory}
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            liveOnly={liveOnly}
-            onToggleLiveOnly={() => setLiveOnly(!liveOnly)}
-            filteredCount={filteredCount}
-            totalCount={totalCount}
+            projects={allProjects}
             onSelectProject={openProject}
-            onResetFilters={resetFilters}
             onBackToHome={navigateToHome}
           />
         ) : (
@@ -73,9 +51,6 @@ export default function App() {
               onSelectProject={openProject}
               onNavigateToAllProjects={navigateToAllProjects}
             />
-
-            {/* Profile Narrative, Experience Pillars, Philosophy & Skills */}
-            <AboutSection />
           </>
         )}
       </main>
