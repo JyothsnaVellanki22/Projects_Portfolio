@@ -5,6 +5,7 @@ import HeroSection from './presentation/features/hero/HeroSection';
 import FeaturedProjectsShowcase from './presentation/features/projects/FeaturedProjectsShowcase';
 import AllProjectsPage from './presentation/features/projects/AllProjectsPage';
 import ProjectDetailPage from './presentation/features/projects/ProjectDetailPage';
+import AboutSection from './presentation/features/about/AboutSection';
 import Footer from './presentation/features/footer/Footer';
 
 export default function App() {
@@ -72,6 +73,9 @@ export default function App() {
               onSelectProject={openProject}
               onNavigateToAllProjects={navigateToAllProjects}
             />
+
+            {/* Profile Narrative, Experience Pillars, Philosophy & Skills */}
+            <AboutSection />
           </>
         )}
       </main>
