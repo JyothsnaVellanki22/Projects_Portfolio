@@ -690,7 +690,7 @@ export default function ScamDetectorCaseStudy({
               <div className="takeaway-badge">03</div>
               <h4 className="takeaway-headline">Classical ML Remains Potent</h4>
               <p className="takeaway-body">
-                Not every text problem requires an expensive cloud LLM. Multinomial Naive Bayes delivers sub-50ms CPU inference with zero running costs and zero vendor lock-in.
+                Not every text problem requires an expensive cloud LLM. Multinomial Naive Bayes delivers low-latency CPU inference with zero running costs and zero vendor lock-in.
               </p>
             </div>
           </div>
