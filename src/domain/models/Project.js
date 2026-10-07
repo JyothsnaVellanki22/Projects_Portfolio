@@ -5,11 +5,30 @@
 function sanitizeSafeUrl(url) {
   if (!url || typeof url !== 'string') return null;
   const trimmed = url.trim();
-  if (trimmed.startsWith('/') || trimmed.startsWith('#')) return trimmed;
+
+  // Reject protocol-relative bypasses, backslashes, and control characters
+  if (
+    trimmed.startsWith('//') || 
+    trimmed.startsWith('/\\') || 
+    trimmed.startsWith('\\') ||
+    trimmed.includes('\\')
+  ) {
+    return null;
+  }
+
+  // Same-origin relative paths and fragment anchors
+  if (trimmed.startsWith('/') || trimmed.startsWith('#')) {
+    if (trimmed.length > 1 && (trimmed[1] === '/' || trimmed[1] === '\\')) {
+      return null;
+    }
+    return trimmed;
+  }
+
   try {
     const parsed = new URL(trimmed);
-    if (parsed.protocol === 'http:' || parsed.protocol === 'https:') {
-      return trimmed;
+    // Enforce strict HTTPS for all external URLs
+    if (parsed.protocol === 'https:') {
+      return parsed.href;
     }
     return null;
   } catch {

@@ -376,7 +376,7 @@ class ProjectsRepository {
           "/assets/projects/scam_detector.png"
         ],
         summary: "Full-stack machine learning application built with Angular 17, FastAPI, and scikit-learn classifying SMS and message spam with 96.86% accuracy.",
-        description: "Built to protect users from fraudulent messages. It combines TF-IDF text tokenization with an optimized Multinomial Naive Bayes model to deliver sub-50ms classifications and visual confidence scores without external API costs.",
+        description: "Built to protect users from fraudulent messages. It combines TF-IDF text tokenization with an optimized Multinomial Naive Bayes model to deliver low-latency classifications and visual confidence scores without external API costs.",
         story: "The product problem is simple: a user receives a suspicious message and wants a quick initial assessment without configuring an inbox integration. The technical problem is turning an offline scikit-learn model into a reliable web application.",
         techStack: ["Python", "scikit-learn", "FastAPI", "Angular 17", "TypeScript", "Pydantic", "Joblib", "pandas"],
         keyMetrics: [
@@ -400,7 +400,7 @@ class ProjectsRepository {
         goals: [
           "Build an instant, transparent text classifier to protect users against fraudulent SMS and phishing communications.",
           "Benchmark multiple ML algorithms and optimize a Multinomial Naive Bayes classifier reaching ~97% accuracy on test benchmarks.",
-          "Deliver sub-50ms inference by serving serialized Scikit-Learn Joblib models directly in memory via FastAPI.",
+          "Deliver low-latency inference by serving serialized Scikit-Learn Joblib models directly in memory via FastAPI.",
           "Design an interpretable radar visualization so non-technical users immediately understand which linguistic patterns triggered suspicion."
         ],
         takeaways: [

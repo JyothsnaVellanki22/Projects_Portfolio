@@ -1,11 +1,11 @@
 import React from 'react';
-import { ArrowUpRightIcon, GithubIcon } from '../../common/Icons';
+import { CaseStudyNav, CaseStudyHeader, CaseStudyCallout, CaseStudyBottomBar } from './components/CaseStudyCommon';
 import './project-detail.css';
 
 export default function ChapterV2CaseStudy({ 
   project, 
   onBack, 
-  allProjects = [], 
+  _allProjects = [], 
   onSelectProject 
 }) {
   if (!project) return null;
@@ -13,84 +13,24 @@ export default function ChapterV2CaseStudy({
   return (
     <div className="case-study-page-wrap">
       <div className="container case-study-container">
-        {/* ===================================================================
-            TOP SUB-NAV & BREADCRUMBS
-            =================================================================== */}
-        <nav className="case-study-top-nav" aria-label="Case Study Navigation">
-          <button 
-            type="button" 
-            className="btn-case-study-back" 
-            onClick={onBack}
-            title="Return to projects list"
-          >
-            <span>&larr; Back to All Projects</span>
-          </button>
+        {/* Top Navigation */}
+        <CaseStudyNav project={project} onBack={onBack} />
 
-          <div className="case-study-breadcrumbs">
-            <span>Projects</span>
-            <span className="case-study-breadcrumb-sep">/</span>
-            <span style={{ textTransform: 'capitalize' }}>Client Work</span>
-            <span className="case-study-breadcrumb-sep">/</span>
-            <span className="case-study-breadcrumb-active">ChapterV2</span>
-          </div>
+        {/* Case Study Header */}
+        <CaseStudyHeader 
+          title="ChapterV2 Product Website" 
+          subtitle="Interactive presentation of a reading engagement product for educators" 
+        />
 
-          <div className="case-study-nav-links">
-            <span className="type-badge" style={{ backgroundColor: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#10b981', fontWeight: 600, marginRight: '0.5rem' }}>
-              Client Work
-            </span>
-            {project.liveUrl && (
-              <a 
-                href={project.liveUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn-case-study-live"
-                style={{ padding: '0.45rem 0.95rem', fontSize: '0.82rem' }}
-                title="View Live Website"
-              >
-                <span>Live Demo</span>
-                <ArrowUpRightIcon size={14} />
-              </a>
-            )}
-            {project.githubUrl && (
-              <a 
-                href={project.githubUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn-case-study-github"
-                style={{ padding: '0.45rem 0.9rem', fontSize: '0.82rem' }}
-                title="View GitHub repository"
-              >
-                <GithubIcon size={15} />
-                <span>Code</span>
-              </a>
-            )}
-          </div>
-        </nav>
-
-        {/* ===================================================================
-            CASE STUDY TITLE & TAGLINE
-            =================================================================== */}
-        <header className="case-study-header">
-          <h1 className="case-study-title">
-            ChapterV2 Product Website
-          </h1>
-          <p className="case-study-subtitle">
-            Interactive presentation of a reading engagement product for educators
-          </p>
-        </header>
-
-        {/* ===================================================================
-            EXECUTIVE SUMMARY CALLOUT
-            =================================================================== */}
-        <div className="problem-statement-callout" style={{ margin: '1.5rem 0 2.5rem' }}>
-          <span className="problem-statement-badge">EXECUTIVE SUMMARY</span>
+        {/* Executive Summary Callout */}
+        <CaseStudyCallout badge="EXECUTIVE SUMMARY">
           <p className="problem-statement-text" style={{ fontSize: '1.02rem', lineHeight: '1.75' }}>
             ChapterV2 explains how Chapter connects active student reading with educator insight. The implementation turns that product story into a public website with a reader demonstration, an interactive analytics preview, and a path to request a demo.
           </p>
           <p className="problem-statement-text" style={{ fontSize: '0.96rem', marginTop: '0.85rem', color: 'var(--color-ink-muted)' }}>
             The strongest engineering contribution is a detailed product tour built with browser-native technologies. The presentation website implements the interactive product demonstration; the authenticated learning platform, analytics pipeline, and AI services are part of the core application platform.
           </p>
-        </div>
+        </CaseStudyCallout>
 
         {/* ===================================================================
             PROJECT OVERVIEW TABLE
@@ -677,41 +617,11 @@ export default function ChapterV2CaseStudy({
         {/* ===================================================================
             BOTTOM ACTIONS
             =================================================================== */}
-        <div className="case-study-bottom-bar">
-          <div className="case-study-action-buttons">
-            {project.liveUrl && (
-              <a 
-                href={project.liveUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn-case-study-live"
-              >
-                <span>Live Demo</span>
-                <ArrowUpRightIcon size={16} />
-              </a>
-            )}
-            {project.githubUrl && (
-              <a 
-                href={project.githubUrl} 
-                target="_blank" 
-                rel="noopener noreferrer" 
-                className="btn-case-study-github"
-              >
-                <GithubIcon size={18} />
-                <span>View Source Code</span>
-              </a>
-            )}
-          </div>
-
-          <button 
-            type="button" 
-            className="btn-case-study-back" 
-            onClick={onBack}
-            style={{ margin: 0 }}
-          >
-            <span>&larr; Back to All Projects</span>
-          </button>
-        </div>
+        <CaseStudyBottomBar 
+          project={project} 
+          onBack={onBack} 
+          metaLabel="Client Work • Chapter Reading LLC"
+        />
       </div>
     </div>
   );

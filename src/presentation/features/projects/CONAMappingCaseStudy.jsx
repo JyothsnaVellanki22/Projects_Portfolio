@@ -1,4 +1,5 @@
 import React from 'react';
+import { CaseStudyNav, CaseStudyCallout, CaseStudyBottomBar } from './components/CaseStudyCommon';
 import './project-detail.css';
 
 export default function CONAMappingCaseStudy({ 
@@ -19,37 +20,10 @@ export default function CONAMappingCaseStudy({
   return (
     <div className="case-study-page-wrap">
       <div className="container case-study-container">
-        {/* ===================================================================
-            TOP SUB-NAV & BREADCRUMBS
-            =================================================================== */}
-        <nav className="case-study-top-nav" aria-label="Case Study Navigation">
-          <button 
-            type="button" 
-            className="btn-case-study-back" 
-            onClick={onBack}
-            title="Return to projects list"
-          >
-            <span>&larr; Back to All Projects</span>
-          </button>
+        {/* Top Navigation */}
+        <CaseStudyNav project={project} onBack={onBack} />
 
-          <div className="case-study-breadcrumbs">
-            <span>Projects</span>
-            <span className="case-study-breadcrumb-sep">/</span>
-            <span style={{ textTransform: 'capitalize' }}>Client Work</span>
-            <span className="case-study-breadcrumb-sep">/</span>
-            <span className="case-study-breadcrumb-active">CONA Mapping Tool</span>
-          </div>
-
-          <div className="case-study-nav-links">
-            <span className="type-badge" style={{ backgroundColor: 'rgba(16, 185, 129, 0.12)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#10b981', fontWeight: 600 }}>
-              Client Work &bull; CONA Services
-            </span>
-          </div>
-        </nav>
-
-        {/* ===================================================================
-            CASE STUDY TITLE & TAGLINE
-            =================================================================== */}
+        {/* CASE STUDY TITLE & TAGLINE */}
         <header className="case-study-header">
           <div style={{ display: 'inline-block', marginBottom: '0.5rem' }}>
             <span className="case-study-kicker">CONA INNOVATION TEAM &bull; TPO INTEGRATION</span>
@@ -62,18 +36,18 @@ export default function CONAMappingCaseStudy({
           </p>
         </header>
 
-        {/* ===================================================================
-            EXECUTIVE SUMMARY CALLOUT
-            =================================================================== */}
-        <div className="problem-statement-callout" style={{ margin: '1.5rem 0 2.25rem' }}>
-          <span className="problem-statement-badge">INTERNSHIP &bull; SUMMER 2025 &bull; JYOTHSNA VELLANKI</span>
+        {/* EXECUTIVE SUMMARY CALLOUT */}
+        <CaseStudyCallout 
+          badge="INTERNSHIP • SUMMER 2025 • JYOTHSNA VELLANKI"
+          calloutStyle={{ margin: '1.5rem 0 2.25rem' }}
+        >
           <p className="problem-statement-text" style={{ fontSize: '1.02rem', lineHeight: '1.75' }}>
             During my internship with the <strong>CONA Innovation Team</strong>, I developed a mapping feature for the <strong>Trade Promotion Optimization (TPO)</strong> application. The goal was to help bottlers explore Census Trade Areas, counties, retailers, and key sales metrics through an interactive geographic interface.
           </p>
           <p className="problem-statement-text" style={{ fontSize: '0.96rem', marginTop: '0.85rem', color: 'var(--color-ink-muted)' }}>
             Trade Promotion Optimization (TPO) focuses on making trade spend more effective and efficient. In this project, a Census Trade Area (CTA) identifies a designated geographic region. The mapping tool connects those regions with business data so users can examine where activity is happening and drill into the retailers associated with a county.
           </p>
-        </div>
+        </CaseStudyCallout>
 
         {/* ===================================================================
             PROJECT AT A GLANCE TABLE
@@ -541,25 +515,12 @@ export default function CONAMappingCaseStudy({
           </div>
         </section>
 
-        {/* ===================================================================
-            BOTTOM ACTIONS
-            =================================================================== */}
-        <div className="case-study-bottom-bar">
-          <div className="case-study-action-buttons">
-            <span style={{ fontSize: '0.88rem', color: 'var(--color-ink-faint)' }}>
-              CONA Innovation Team &bull; Summer 2025 Internship
-            </span>
-          </div>
-
-          <button 
-            type="button" 
-            className="btn-case-study-back" 
-            onClick={onBack}
-            style={{ margin: 0 }}
-          >
-            <span>&larr; Back to All Projects</span>
-          </button>
-        </div>
+        {/* BOTTOM ACTIONS */}
+        <CaseStudyBottomBar 
+          project={project} 
+          onBack={onBack} 
+          metaLabel="CONA Innovation Team • Summer 2025 Internship" 
+        />
       </div>
     </div>
   );
